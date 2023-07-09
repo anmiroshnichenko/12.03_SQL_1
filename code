@@ -1,9 +1,8 @@
-```sql
 select * from customer;
 select customer_id, first_name Имя, last_name as  Фамилия from customer;
 
 SELECT f.title, c.name Имя, f.rental_rate/f.rental_duration as cost_per_day 
-from  film f
+FROM  film f
 JOIN film_category fc on fc.film_id = f.film_id 
 JOIN category c on c.category_id = fc.category_id;
-```
+
