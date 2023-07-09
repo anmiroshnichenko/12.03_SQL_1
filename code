@@ -25,5 +25,5 @@ FROM customer; #выводит все оригинальные значения(
 
 SELECT * FROM payment 	
 WHERE amount > 7 AND staff_id = 2 OR amount < 5 AND staff_id = 1
-ORDER BY amount;#NOT-логическое отрицание, выполнятется всегда первымю 
+ORDER BY amount DESC;#NOT-логическое отрицание, выполнятется всегда первымю 
   #AND-логическое умножение, выполняется вторым, потом OR-логичексое сложение(можно использовать скобки) 
