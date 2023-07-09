@@ -2,7 +2,28 @@ select * from customer;
 select customer_id, first_name Имя, last_name as  Фамилия from customer;
 
 SELECT f.title, c.name Имя, f.rental_rate/f.rental_duration as cost_per_day 
-FROM  film f
+from  film f
 JOIN film_category fc on fc.film_id = f.film_id 
 JOIN category c on c.category_id = fc.category_id;
 
+SELECT title, rental_rate/rental_duration as cost_per_day
+from film 
+Order by cost_per_day DESC, title ASC;
+
+SELECT title, rental_rate/rental_duration as cost_per_day
+from film 
+Order by title ASC, cost_per_day DESC; # ASC - сортировка от меньшего, DESC-от большего к меньшему
+
+SELECT title, rental_rate/rental_duration as cost_per_day
+from film 
+Order by cost_per_day DESC, title ASC 
+limit 10  # сколько выводить строк 
+offset 3; #c какой записи начинает  вывод
+
+SELECT DISTINCT store_id, last_name, first_name  
+FROM customer; #выводит все оригинальные значения(откидывает повторяющиеся)
+
+SELECT * FROM payment 	
+WHERE amount > 7 AND staff_id = 2 OR amount < 5 AND staff_id = 1
+ORDER BY amount;#NOT-логическое отрицание, выполнятется всегда первымю 
+  #AND-логическое умножение, выполняется вторым, потом OR-логичексое сложение(можно использовать скобки) 
