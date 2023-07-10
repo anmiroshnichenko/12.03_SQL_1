@@ -31,3 +31,34 @@ ORDER BY amount DESC;#NOT-логическое отрицание, выполн�
 SELECT payment_id, customer_id, staff_id, amount , CAST(payment_date AS DATE) FROM payment
 WHERE  payment_date  >= '2005-06-15' AND payment_date <= '2005-06-19' AND amount > 10 
 ORDER BY payment_date ASC;
+
+SELECT payment_id, customer_id, staff_id, amount ,payment_date, CAST(payment_date AS DATE) FROM payment
+WHERE  CAST(payment_date AS DATE)  >= '2005-06-15' AND  payment_date < '2005-06-19' AND  amount > 10
+ORDER BY payment_date ASC;
+
+SELECT * FROM rental
+ORDER BY rental_id  DESC
+LIMIT 5;
+
+SELECT customer_id, REPLACE (LOWER(first_name), 'll', 'pp'), last_name, email, address_id, active
+FROM customer
+WHERE first_name = 'Kelly' AND  active = 1 OR first_name = 'Willie' AND active = 1;
+
+SELECT SUBSTRING_INDEX(email, '@', 1), UPPER(SUBSTRING_INDEX(email, '@', -1) )  
+FROM customer;
+      
+     SELECT CONCAT(
+        SUBSTRING(SUBSTRING_INDEX(email, '@', 1), 1, 1),
+        LOWER(SUBSTRING(SUBSTRING_INDEX(email, '@', 1), 2))
+    ) AS one, 
+    		CONCAT(
+    	SUBSTRING(SUBSTRING_INDEX(email, '@', -1), 1, 1), 
+    LOWER(SUBSTRING(UPPER(SUBSTRING_INDEX(email, '@', -1)), 2))
+    ) AS too
+FROM customer;
+
+SELECT CONCAT(
+        SUBSTRING(SUBSTRING_INDEX(email, '@', 1), 1, 1),
+        LOWER(SUBSTRING(SUBSTRING_INDEX(email, '@', 1), 2))
+    ) AS one, SUBSTRING_INDEX(email, '@', -1)  too
+FROM customer;
