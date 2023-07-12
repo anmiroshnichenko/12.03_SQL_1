@@ -70,6 +70,26 @@ select truncate(100.576, 0); --
 select floor(100.576); -- 100
 select ceil(100.576); -- 101
 select abs(-100.576); -- 100.576  
+
 select title, round(rental_rate/rental_duration, 2) as cost_per_day, rental_rate/rental_duration
 from film 
 order by cost_per_day desc, title asc;
+
+select power(2, 3); -- 8 
+select sqrt(64); -- 8
+select 64 div 6; -- 10
+select 64%6; -- 4
+select greatest(17, 5, 18, 21, 16); -- 21
+select least(17, 5, 18, 21, 16); -- 5
+select rand(); --  0.697346799922 псевдослучайное число от 0 до 1
+
+select rental_rate, rental_duration, 
+	   rental_rate + rental_duration a,
+	   rental_rate - rental_duration b,
+	   rental_rate * rental_duration c,
+	   rental_rate / rental_duration d,
+	   rental_rate div rental_duration f,
+	   power(rental_rate, rental_duration) g,
+	   cos(rental_rate) h, sin(rental_duration) j
+from film;   
+	   
