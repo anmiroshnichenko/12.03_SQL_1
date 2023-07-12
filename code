@@ -70,3 +70,6 @@ select truncate(100.576, 0); --
 select floor(100.576); -- 100
 select ceil(100.576); -- 101
 select abs(-100.576); -- 100.576  
+select title, round(rental_rate/rental_duration, 2) as cost_per_day, rental_rate/rental_duration
+from film 
+order by cost_per_day desc, title asc;
