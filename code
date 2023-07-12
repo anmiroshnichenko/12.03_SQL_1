@@ -62,3 +62,11 @@ SELECT CONCAT(
         LOWER(SUBSTRING(SUBSTRING_INDEX(email, '@', 1), 2))
     ) AS one, SUBSTRING_INDEX(email, '@', -1)  too
 FROM customer;
+
+select round(100.576); -- 101
+select round(100.576, 2); -- 100.58
+select truncate(100.576, 2); -- 100.57 
+select truncate(100.576, 0); -- 
+select floor(100.576); -- 100
+select ceil(100.576); -- 101
+select abs(-100.576); -- 100.576  
